@@ -71,15 +71,15 @@ Attention: To run the application for first time using new database, you need to
 
 > Unit tests
 > ```sh
-> npm run test
+> yarn test
 > ```
 > Tests e2e
 > ```sh
-> npm run test:e2e
+> yarn test:e2e
 > ```
 > Test coverage
 > ```sh
-> npm run test:cov
+> yarn test:cov
 > ```
 
 ## ❤️ Support
