@@ -1,0 +1,47 @@
+version: '3.9'
+name: rennan-api
+
+services:
+  rennan-api:
+    container_name: rennan-api
+    build:
+      context: .
+    env_file: .env
+    environment:
+      - DATABASE_URL_CONNECT=""
+      - DATABASE_SHADOW_URL=""
+
+    volumes:
+      - .:/app
+      - .:/app/node_modules
+      - ./logs:/usr/src/app/logs
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229
+    networks:
+      - bridge
+    depends_on:
+      - db
+    command: >
+      sh -c "npm i && npx prisma generate && npx prisma migrate deploy && npm run start:debug"
+    # restart: on-failure
+
+  db:
+    image: postgres:alpine
+    restart: always
+    container_name: pg_db
+    environment:
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/config/database/init:/docker-entrypoint-initdb.d
+    networks:
+      - bridge
+
+networks:
+  bridge:
+
+volumes:
+  pgdata:

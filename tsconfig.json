@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "types": ["node"],
+    "paths": {
+      "src/*": ["src/*"],
+      "@infra/*": ["src/infra/*"],
+      "@core/*": ["src/core/*"],
+      "@auth/*": ["src/core/auth/*"],
+      "@database/*": ["src/core/database/*"],
+      "@prisma/*": ["src/core/prisma/*"],
+      "@config/*": ["src/config/*"],
+      "@enums/*": ["src/enums/*"],
+      "@utils/*": ["src/utils/*"],
+      "@types": ["src/types", "src/types/*"],
+      "@decorators/*": ["src/decorators/*"],
+      "@dtos/*": ["src/utils/dtos/*"],
+      "@exceptions/*": ["src/utils/exceptions/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@interceptors/*": ["src/utils/interceptors/*"]
+    }
+  }
+}

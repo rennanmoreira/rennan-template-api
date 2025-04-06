@@ -1,0 +1,55 @@
+{
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "testMatch": [
+    "**/tests/**/*.spec.ts",
+    "**/*.test.ts"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/modules/**/*.ts",
+    "!src/main.ts",
+    "!src/modules/*/index.ts",
+    "!src/modules/*/enum/*.ts",
+    "!src/**/app.module.ts",
+    "!src/**/tests/**"
+  ],
+  "setupFilesAfterEnv": [
+    "<rootDir>/src/test/setup.ts"
+  ],
+  "coverageDirectory": "<rootDir>/src/test/coverage",
+  "coverageReporters": [
+    "text",
+    "lcov",
+    "json",
+    "html"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "^@infra/(.*)$": "<rootDir>/src/infra/$1",
+    "^@core/(.*)$": "<rootDir>/src/core/$1",
+    "^@auth/(.*)$": "<rootDir>/src/core/auth/$1",
+    "^@database/(.*)$": "<rootDir>/src/infra/database/$1",
+    "^@prisma/(.*)$": "<rootDir>/src/core/prisma/$1",
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
+    "^@config/(.*)$": "<rootDir>/src/config/$1",
+    "^@enums/(.*)$": "<rootDir>/src/enums/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "^@types/(.*)$": "<rootDir>/src/types/$1",
+    "^@decorators/(.*)$": "<rootDir>/src/decorators/$1",
+    "^@dtos/(.*)$": "<rootDir>/src/utils/dtos/$1",
+    "^@exceptions/(.*)$": "<rootDir>/src/utils/exceptions/$1",
+    "^@helpers/(.*)$": "<rootDir>/src/helpers/$1",
+    "^@interceptors/(.*)$": "<rootDir>/src/utils/interceptors/$1"
+  }
+}
