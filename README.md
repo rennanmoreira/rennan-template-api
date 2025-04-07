@@ -117,7 +117,7 @@ After starting the application, access the Swagger documentation at: http://loca
 
 ## ❤️ Support
 
-This Rennan's Template API is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please send me an email (rennanmore@gmail.com) or [dicover more about project](https://github.com/rennanmoreira/rennan-template-api).
+This Rennan's Template API is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please send me an email (rennanmore@gmail.com) or dicover more about [project](https://github.com/rennanmoreira/rennan-template-api).
 
 </br>
 
