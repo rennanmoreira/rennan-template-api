@@ -26,6 +26,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "create-env": "printenv > .env",
+    "prisma:pull": "prisma db pull",
     "prisma:format": "prisma format",
     "prisma:generate": "prisma generate",
     "prisma:deploy": "prisma migrate deploy",
@@ -33,7 +34,8 @@
     "prisma:migrate:create": "prisma migrate dev --name ",
     "prisma:seed": "ts-node prisma/seeds/index.ts",
     "module:create": "node ./packages/create-modules/dist/index.js",
-    "container:terminal": "docker exec -it cd_backend /bin/sh"
+    "container:terminal": "docker exec -it cd_backend /bin/sh",
+    "generate:doc": "@compodoc/compodoc -p tsconfig.json -s"
   },
   "dependencies": {
     "@google-cloud/storage": "^7.15.2",
@@ -62,6 +64,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.26",
     "@nestjs/cli": "^11.0.5",
     "@nestjs/schematics": "^11.0.2",
     "@nestjs/testing": "^11.0.11",
