@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core'
-import { ConsoleLogger, ValidationPipe } from '@nestjs/common'
+import { ConsoleLogger, ValidationPipe, VersioningType } from '@nestjs/common'
 import { AppModule } from './app.module'
 import { urlencoded, json } from 'express'
 import { PrismaExceptionsFilter } from '@exceptions/prisma-exceptions.filters'
@@ -31,6 +31,7 @@ async function bootstrap() {
       colors: IS_DEVELOPMENT
     })
   })
+
   app.useGlobalFilters(new PrismaExceptionsFilter())
   app.useGlobalInterceptors(new TimezoneInterceptor())
   app.useGlobalPipes(
@@ -53,6 +54,13 @@ async function bootstrap() {
     optionsSuccessStatus: 204,
     allowedHeaders: 'Content-Type, Accept, Authorization',
     credentials: true
+  })
+
+  const majorAppVersion = APP_VERSION?.length ? APP_VERSION.split('.')[0] : '1'
+
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: majorAppVersion
   })
 
   const options = new DocumentBuilder()

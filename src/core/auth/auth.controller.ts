@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Post, Res, Req, Session } from '@nestjs/common'
+import { Body, Controller, Get, HttpCode, Post, Res, Req, Session, Version } from '@nestjs/common'
 import { EmailDTO, GoogleAccountRegisterDTO, LoginDTO, LoginWithLinkDTO, RegisterDTO } from './auth.dto'
 import { AuthService } from './auth.service'
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger'
@@ -10,7 +10,7 @@ import { Roles } from 'src/decorators/roles.decorator'
 import { Role } from 'src/enums/role.enum'
 
 @ApiTags('Authentications')
-@Controller('auth')
+@Controller({ path: 'auth', version: '1' })
 @ApiResponse({
   status: 500,
   description: 'Internal Server Error',
@@ -19,6 +19,7 @@ import { Role } from 'src/enums/role.enum'
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Version('1')
   @Post('verify-email')
   @Public()
   async verifyIfEmailExists(
