@@ -12,6 +12,19 @@
       "sourceMaps": true,
       "stopOnEntry": false,
       "console": "integratedTerminal"
+    },
+    {
+      "name": "Attach to Docker: Debug Nest API",
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "port": 9229,
+      "address": "127.0.0.1",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app",
+      "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"]
     }
   ]
 }

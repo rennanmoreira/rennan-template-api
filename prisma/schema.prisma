@@ -1,0 +1,85 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres", "driverAdapters"]
+  binaryTargets   = ["native"]
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_SHADOW_URL")
+}
+
+enum EventType {
+  ACTIVATED_ACCOUNT
+  CHANGED_EMAIL
+  CHANGED_NAME
+  CHANGED_PASSWORD
+  CHANGED_PROVIDER
+  CREATED_ACCOUNT
+  DEACTIVATED_ACCOUNT
+  DISABLED_IS_ADMIN
+  DONE_ONBOARDING
+  EMAIL_VERIFIED
+  ENABLED_IS_ADMIN
+  ERROR
+  FORGOT_PASSWORD
+  GRANT_PERMISSION
+  GRANT_ROLE
+  LOG
+  LOGIN
+  LOGIN_FAILED
+  LOGOUT
+  RESET_PASSWORD
+  REVOKE_PERMISSION
+  REVOKE_ROLE
+  SENT_EMAIL
+  SENT_WHATSAPP_MESSAGE
+  SETTED_ANONYMOUS
+  STARTED_ONBOARDING
+  TOKEN_EXPIRED
+  UNSETTED_ANONYMOUS
+  UPDATED_FIELD
+  WARNING
+
+  @@map("event_type")
+}
+
+model AccountEvent {
+  id          Int       @id @default(autoincrement())
+  account_id  String    @db.Uuid
+  type        EventType @default(LOG)
+  description String?
+  created_at  DateTime  @default(now()) @db.Timestamptz(6)
+  account     Account   @relation(fields: [account_id], references: [id])
+
+  @@map("account_events")
+}
+
+model Account {
+  id                    String         @id @default(uuid()) @db.Uuid
+  email                 String         @unique @db.VarChar(255)
+  is_email_verified     Boolean        @default(false)
+  is_active             Boolean        @default(true)
+  is_admin              Boolean        @default(false)
+  is_moderator          Boolean        @default(false)
+  is_provider_anonymous Boolean        @default(false)
+  name                  String         @db.VarChar(255)
+  first_name            String?        @db.VarChar(255)
+  last_name             String?        @db.VarChar(255)
+  lead_origin           String?        @db.VarChar(255)
+  photo_url             String?        @db.Text
+  birth_date            DateTime?      @db.Timestamptz(6)
+  provider              String?        @db.VarChar(255)
+  provider_aud          String?        @db.VarChar(255)
+  provider_user_id      String?        @db.VarChar(255)
+  provider_identity_id  String?        @db.VarChar(255)
+  created_at            DateTime       @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime       @default(now()) @updatedAt @db.Timestamptz(6)
+  deleted_at            DateTime?      @db.Timestamptz(6)
+  events                AccountEvent[]
+
+  @@index([email])
+  @@index([name])
+  @@map("accounts")
+}

@@ -83,7 +83,6 @@ Attention: You need to create a .env file in the root of the project with .env.e
 > yarn prisma:migrate:create new_migration_name
 > ```
 
-TODO: Validar se realmente precisa ainda fazer isso aqui abaixo:
 Attention: To run the application for first time using new database, you need to comment the line 10 in schema.prisma "shadowDatabaseUrl = env("DATABASE_SHADOW_URL")" and run the command. After that, you can uncomment the line 10 in schema.prisma and create de database postgres_shadow in your local machine.
 
 </br>

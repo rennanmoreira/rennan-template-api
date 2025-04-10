@@ -1,4 +1,4 @@
-import { FIREBASE_API_KEY, FIREBASE_AUTH_BASE_API, FIREBASE_SERVICE_ACCOUNT } from '@helpers/environment.helper'
+import { FIREBASE_API_KEY, FIREBASE_AUTH_API, FIREBASE_SERVICE_ACCOUNT } from '@helpers/environment.helper'
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common'
 import axios, { AxiosInstance } from 'axios'
 import * as admin from 'firebase-admin'
@@ -11,7 +11,7 @@ export class FirebaseService {
   constructor() {
     admin.initializeApp({ credential: admin.credential.cert(FIREBASE_SERVICE_ACCOUNT) }) // storageBucket: process.env.FIREBASE_STORAGE_BUCKET
 
-    this.firebaseAuthAPI = axios.create({ baseURL: FIREBASE_AUTH_BASE_API, params: { key: FIREBASE_API_KEY } })
+    this.firebaseAuthAPI = axios.create({ baseURL: FIREBASE_AUTH_API, params: { key: FIREBASE_API_KEY } })
   }
 
   async register(email: string, password: string) {

@@ -103,5 +103,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "resolutions": {
+    "chokidar": "^3.6.0"
   }
 }

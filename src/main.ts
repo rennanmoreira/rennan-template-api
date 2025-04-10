@@ -25,7 +25,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: new ConsoleLogger({
       logLevels: ['log', 'fatal', 'error', 'warn', 'debug', 'verbose'],
-      prefix: 'BC-API',
+      prefix: 'API',
       depth: 8,
       timestamp: true,
       colors: IS_DEVELOPMENT

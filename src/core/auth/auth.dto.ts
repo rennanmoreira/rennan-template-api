@@ -29,7 +29,7 @@ export interface JwtRefreshTokenPayload {
 
 export class GoogleAccountDTO {
   @ApiProperty({
-    example: 'John Cena',
+    example: 'User',
     description: 'Name of the account',
     type: String
   })
@@ -37,7 +37,7 @@ export class GoogleAccountDTO {
   name: string
 
   @ApiProperty({
-    example: 'john.cena@teste.com',
+    example: 'user@test.com',
     description: 'Email of the account',
     type: String
   })
@@ -106,7 +106,7 @@ export class GoogleAccountDTO {
   provider_user_id: string
 
   @ApiProperty({
-    example: 'john.cena@teste.com',
+    example: 'user@test.com',
     description: 'Provider identity id of the account',
     type: String
   })
@@ -123,7 +123,7 @@ export class GoogleAccountRegisterDTO {
   is_provider_anonymous: boolean
 
   @ApiProperty({
-    example: 'john.cena@teste.com',
+    example: 'user@test.com',
     description: 'Email of the account',
     type: String
   })
@@ -149,7 +149,7 @@ export class AuthRefreshTokenDto {
 
 export class EmailDTO {
   @ApiProperty({
-    example: 'johncena@test.com',
+    example: 'user@test.com',
     description: 'Email of the account',
     type: String
   })
@@ -183,7 +183,7 @@ export class LoginWithLinkDTO extends EmailDTO {
 
 export class RegisterDTO {
   @ApiProperty({
-    example: 'johncena@test.com',
+    example: 'user@test.com',
     description: 'Email of the account',
     type: String
   })
@@ -206,7 +206,7 @@ export class RegisterDTO {
   password: string
 
   @ApiProperty({
-    example: 'John Cena Test',
+    example: 'User Test',
     description: 'Display name of the account',
     type: String
   })
@@ -236,7 +236,7 @@ export class ResponseAuthMeDTO extends ResponseAccountDTO {
   id: string
 
   @ApiProperty({
-    example: 'john@doe.com',
+    example: 'user@test.com',
     description: 'Email of the account',
     type: String
   })

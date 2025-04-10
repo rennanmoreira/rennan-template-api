@@ -1,34 +1,30 @@
-FROM node:20.18-alpine
+FROM node:22.14-alpine
 
+# --- Define a variável de ambiente de fuso horário ---
+ENV TZ="America/Sao_Paulo"
 ARG NODE_ENV
 ENV NODE_ENV=$NODE_ENV
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
-# --- Define a variável de ambiente de fuso horário ---
 RUN apk add --no-cache openssl bash tzdata
-ENV TZ="America/Sao_Paulo"
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
+COPY prisma ./prisma/
 
+RUN npm update -g npm
 RUN npm install
-
-# Add a non-root user and change ownership of the app directory
-# RUN adduser -D myuser && chown -R myuser:myuser /app ./node_modules/
-
-# Switch to the non-root user
-# USER myuser
 
 COPY . .
 
-# RUN chown -R myuser:myuser ./node_modules/
-
+RUN npm install -g prisma
+RUN npm install -g @nestjs/cli
 RUN npm run prisma:generate
 
-RUN npm run build
+# RUN npm run build
 
-EXPOSE 8080
-CMD [ "npm", "run", "start:prod" ]
+EXPOSE 3000 9229
+# CMD [ "npm", "run", "start:prod" ]
 
