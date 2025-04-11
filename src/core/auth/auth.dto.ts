@@ -244,7 +244,7 @@ export class ResponseAuthMeDTO extends ResponseAccountDTO {
   email: string
 
   @ApiPropertyOptional({
-    example: Role.PATIENT,
+    example: Role.USER,
     description: 'Role of the account',
     type: String,
     enum: Role

@@ -83,7 +83,7 @@ describe('AuthGuard', () => {
     const validTokenPayload: JwtAccessTokenPayload = {
       sub: 1,
       email: 'test@example.com',
-      role: 'PATIENT',
+      role: 'USER',
       token_version: 1
     }
 
@@ -101,7 +101,7 @@ describe('AuthGuard', () => {
     const validTokenPayload: JwtAccessTokenPayload = {
       sub: 1,
       email: 'test@example.com',
-      role: 'PATIENT',
+      role: 'USER',
       token_version: 1
     }
 
@@ -126,7 +126,7 @@ describe('AuthGuard', () => {
       id: 1,
       email: 'contact@email.com',
       people_id: 1,
-      role: 'PATIENT',
+      role: 'USER',
       password: 'password',
       token_version: 1,
       refresh_token: 'refresh_token',

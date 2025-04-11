@@ -62,7 +62,7 @@ model Account {
   is_email_verified     Boolean        @default(false)
   is_active             Boolean        @default(true)
   is_admin              Boolean        @default(false)
-  is_moderator          Boolean        @default(false)
+  is_manager            Boolean        @default(false)
   is_provider_anonymous Boolean        @default(false)
   name                  String         @db.VarChar(255)
   first_name            String?        @db.VarChar(255)

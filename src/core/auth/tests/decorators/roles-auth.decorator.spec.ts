@@ -16,7 +16,7 @@ describe('AuthDecorator', () => {
     expect(guards).toContain(AuthGuard)
 
     const roles = reflector.get<Role[]>(ROLES_KEY, TestClass.prototype.testMethod)
-    expect(roles).toEqual([Role.ADMIN, Role.PATIENT])
+    expect(roles).toEqual([Role.ADMIN, Role.USER])
   })
 
   it('should apply guards and set empty roles metadata if no roles are provided', () => {

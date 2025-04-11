@@ -8,7 +8,7 @@ const ACCOUNTS = [
     is_email_verified: true,
     is_active: true,
     is_admin: true,
-    is_moderator: true,
+    is_manager: true,
     is_provider_anonymous: false,
     name: 'User Test',
     first_name: 'User',

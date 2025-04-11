@@ -7,12 +7,12 @@ describe('RolesDecorator', () => {
 
   it('should set roles metadata on handler', () => {
     class TestClass {
-      @Roles(Role.ADMIN, Role.PATIENT)
+      @Roles(Role.ADMIN, Role.USER)
       testMethod() {}
     }
 
     const roles = reflector.get<Role[]>(ROLES_KEY, TestClass.prototype.testMethod)
-    expect(roles).toEqual([Role.ADMIN, Role.PATIENT])
+    expect(roles).toEqual([Role.ADMIN, Role.USER])
   })
 
   it('should set empty roles metadata if no roles provided', () => {
