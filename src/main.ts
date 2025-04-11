@@ -52,7 +52,7 @@ async function bootstrap() {
     methods: METHODS,
     preflightContinue: false,
     optionsSuccessStatus: 204,
-    allowedHeaders: 'Content-Type, Accept, Authorization',
+    allowedHeaders: 'Content-Type, Accept, Authorization, X-API-Version',
     credentials: true
   })
 

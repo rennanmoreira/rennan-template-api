@@ -34,6 +34,7 @@
     "prisma:migrate:create": "prisma migrate dev --name ",
     "prisma:seed": "ts-node prisma/seeds/index.ts",
     "module:create": "node ./packages/create-modules/dist/index.js",
+    "module:create:format": "node ./packages/create-modules/dist/index.js && yarn format",
     "container:terminal": "docker exec -it cd_backend /bin/sh",
     "generate:doc": "@compodoc/compodoc -p tsconfig.json -s"
   },
