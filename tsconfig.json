@@ -33,7 +33,9 @@
       "@dtos/*": ["src/utils/dtos/*"],
       "@exceptions/*": ["src/utils/exceptions/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@interceptors/*": ["src/utils/interceptors/*"]
+      "@interceptors/*": ["src/utils/interceptors/*"],
+      "@account-events/*": ["src/modules/account-events/*"],
+      "@accounts/*": ["src/modules/accounts/*"]
     }
   }
 }

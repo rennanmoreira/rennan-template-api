@@ -1,11 +1,6 @@
 {
-  "roots": [
-    "<rootDir>/src"
-  ],
-  "testMatch": [
-    "**/tests/**/*.spec.ts",
-    "**/*.test.ts"
-  ],
+  "roots": ["<rootDir>/src"],
+  "testMatch": ["**/tests/**/*.spec.ts", "**/*.test.ts"],
   "testEnvironment": "node",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
@@ -19,21 +14,10 @@
     "!src/**/app.module.ts",
     "!src/**/tests/**"
   ],
-  "setupFilesAfterEnv": [
-    "<rootDir>/src/test/setup.ts"
-  ],
+  "setupFilesAfterEnv": ["<rootDir>/src/test/setup.ts"],
   "coverageDirectory": "<rootDir>/src/test/coverage",
-  "coverageReporters": [
-    "text",
-    "lcov",
-    "json",
-    "html"
-  ],
-  "moduleFileExtensions": [
-    "js",
-    "json",
-    "ts"
-  ],
+  "coverageReporters": ["text", "lcov", "json", "html"],
+  "moduleFileExtensions": ["js", "json", "ts"],
   "moduleNameMapper": {
     "^src/(.*)$": "<rootDir>/src/$1",
     "^@infra/(.*)$": "<rootDir>/src/infra/$1",
@@ -50,6 +34,8 @@
     "^@dtos/(.*)$": "<rootDir>/src/utils/dtos/$1",
     "^@exceptions/(.*)$": "<rootDir>/src/utils/exceptions/$1",
     "^@helpers/(.*)$": "<rootDir>/src/helpers/$1",
-    "^@interceptors/(.*)$": "<rootDir>/src/utils/interceptors/$1"
+    "^@interceptors/(.*)$": "<rootDir>/src/utils/interceptors/$1",
+    "^@account-events/(.*)$": "<rootDir>/src/modules/account-events/$1",
+    "^@accounts/(.*)$": "<rootDir>/src/modules/accounts/$1"
   }
 }

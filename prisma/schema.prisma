@@ -72,7 +72,7 @@ model Account {
   birth_date            DateTime?      @db.Timestamptz(6)
   provider              String?        @db.VarChar(255)
   provider_aud          String?        @db.VarChar(255)
-  provider_user_id      String?        @db.VarChar(255)
+  provider_account_id   String?        @db.VarChar(255)
   provider_identity_id  String?        @db.VarChar(255)
   created_at            DateTime       @default(now()) @db.Timestamptz(6)
   updated_at            DateTime       @default(now()) @updatedAt @db.Timestamptz(6)

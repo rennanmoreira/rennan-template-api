@@ -48,7 +48,7 @@ export class AuthService {
         is_email_verified: decodedToken?.email_verified || false,
         provider: decodedToken?.firebase?.sign_in_provider || 'password',
         provider_aud: decodedToken.aud,
-        provider_user_id: decodedToken.user_id,
+        provider_account_id: decodedToken.user_id,
         provider_identity_id: data.email,
       })
 

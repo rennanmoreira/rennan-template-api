@@ -60,7 +60,7 @@ export class AuthGuard implements CanActivate {
         is_email_verified: user.emailVerified || false,
         provider: user.providerData[0].providerId,
         provider_aud: decodedToken.aud,
-        provider_user_id: user.uid,
+        provider_account_id: user.uid,
         provider_identity_id: user.providerData[0].uid
       }
 
